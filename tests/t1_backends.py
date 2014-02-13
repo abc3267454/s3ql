@@ -309,8 +309,7 @@ class S3Tests(BackendTestsMixin, unittest.TestCase):
         (backend_login, backend_password,
          fs_name) = get_remote_test_info(backend_fs_name, self.skipTest)
         
-        self.backend = backend_class(fs_name, backend_login, backend_password,
-                                     ssl_context=get_ssl_context(options))
+        self.backend = backend_class(fs_name, backend_login, backend_password)
 
         try:
             self.backend.fetch('empty_object')
