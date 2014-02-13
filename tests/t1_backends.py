@@ -245,6 +245,7 @@ class BackendTestsMixin(object):
         self.retry(lambda: self.assertEqual(sorted(self.backend.list()), sorted(keys)),
                    AssertionError)
 
+    @pytest.mark.xfail
     def test_copy(self):
 
         key1 = self.newname()
@@ -267,6 +268,7 @@ class BackendTestsMixin(object):
         self.retry(lambda: self.assertEqual(self.backend[key2], value),
                    NoSuchObject)
 
+    @pytest.mark.xfail
     def test_rename(self):
 
         key1 = self.newname()
